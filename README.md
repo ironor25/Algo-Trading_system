@@ -67,16 +67,20 @@ uvicorn app.main:app --reload
 ### 1. Apply Strategy
 
 ```
-GET /strategy/apply/{ticker}
+GET /strategy/apply
 ```
+* Input : `{ "ticker": "TCS.NS" }`
+* You can give this input too : `{ "ticker": "TCS.NS" , "period":"5y","interval":"1D" }`
 
 Returns signal if conditions are met.
 
 ### 2. Backtest Strategy
 
 ```
-GET /strategy/backtest/{ticker}
+GET /strategy/backtest
 ```
+* Input : `{ "ticker": "TCS.NS" }`
+* You can give this input too : `{ "ticker": "TCS.NS" , "period":"5y","interval":"1D" }`
 
 Returns list of past BUY signals.
 
@@ -87,6 +91,7 @@ POST /ml-predict
 ```
 
 Returns UP/DOWN based on ML model.
+* Input : `{ "ticker": "TCS.NS" }`
 
 ### 4. Auto Trade (Execute or Close)
 
