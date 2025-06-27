@@ -1,8 +1,8 @@
-from app.services.strategy import apply_strategy
-from app.services.model import add_ml_features, train_model, predict_next_movement
+from app.strategy import apply_strategy
+from app.model import add_ml_features, train_model, predict_next_movement
 import pandas as pd
-from app.services.log_trade import log_closed_trade
-from app.services.fetch_data import fetch_data
+from app.log_trade import log_closed_trade
+from app.fetch_data import fetch_data
 # In-memory store for open trades
 open_trades = {}
 

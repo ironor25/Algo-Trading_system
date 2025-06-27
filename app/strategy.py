@@ -1,9 +1,9 @@
 from finta import TA
-from app.services.fetch_data import fetch_data
+from app.fetch_data import fetch_data
 
 # Apply strategy to current data (live mode)
-def apply_strategy(ticker: str) -> dict:
-    df = fetch_data(ticker)
+def apply_strategy(ticker: str, period="1y",interval = "1d") -> dict:
+    df = fetch_data(ticker,period,interval)
 
     # Add indicators
     df['rsi'] = TA.RSI(df)
