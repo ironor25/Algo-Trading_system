@@ -1,22 +1,20 @@
-# app/models/model.py
-
 import numpy as np
 from finta import TA
 from sklearn.linear_model import LogisticRegression
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score
 
-FEATURES = ['rsi', 'macd', 'volume']  # Only 3 features
+FEATURES = ['rsi', 'macd', 'volume']
 
 def add_ml_features(df):
     df['rsi'] = TA.RSI(df)
     df['macd'] = TA.MACD(df)['MACD']
     df['volume'] = df['volume']
 
-    # Target: 1 if tomorrow's price > today, else 0
+    
     df['target'] = np.where(df['close'].shift(-1) > df['close'], 1, 0)
 
-    # Clean NaN, inf, etc.
+  
     df.replace([np.inf, -np.inf], np.nan, inplace=True)
     df.dropna(inplace=True)
     return df

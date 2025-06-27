@@ -13,7 +13,7 @@ def apply_strategy(ticker: str, period="1y",interval = "1d") -> dict:
 
     # Check last row for strategy condition
     last = df.iloc[-1]
-    if last['rsi'] > 30 and last['20dma'] > last['50dma']:
+    if last['rsi'] < 30 and last['20dma'] > last['50dma']:
         return {
             "signal": "BUY",
             "price": round(last['close'], 2),
