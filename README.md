@@ -1,21 +1,11 @@
 # Algo Trading System with Strategy + ML + Sheet Automation
 
-This is an end-to-end algo trading system that combines:
-
-* Technical strategy (RSI + DMA)
-* Machine learning (Logistic Regression)
-* Trade execution tracking
-* Google Sheets logging
-* REST API (via FastAPI)
-
----
-
 ## 🚀 Features
 
 * ✅ Apply trading strategy (RSI < 30 & 20DMA > 50DMA)
 * ✅ Confirm with ML prediction (Logistic Regression)
 * ✅ Automatically execute trades
-* ✅ Log open/close trades
+* ✅ Log trades
 * ✅ Google Sheets logging with PnL
 * ✅ REST API endpoints for all operations
 
@@ -25,15 +15,14 @@ This is an end-to-end algo trading system that combines:
 
 ```
 app/
-├── api/
-│   └── routes.py              # All API endpoints
-├── models/
-│   └── model.py              # ML model functions
+|
+│   ──── 
 ├── services/
-│   ├── data_fetcher.py       # yfinance fetcher
+│   ├── model.py              # ML model functions
+|   ├── fetch_data.py         # yfinance fetcher
 │   ├── strategy.py           # Trading strategy logic
-│   ├── trade_manager.py      # Manage trade state
-│   └── sheet_logger.py       # Google Sheets logger
+│   ├── auto_trigger.py       # Automatically trigger all functions to place a trade
+│   └── log_trade.py          # Google Sheets logger
 ├── main.py                   # FastAPI app
 ├── requirements.txt
 └── service_account.json      # Google Sheets service account key
